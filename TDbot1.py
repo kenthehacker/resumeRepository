@@ -210,7 +210,7 @@ frequencyType: min
 
 #print(price_history_getter(symbol=testSymbol,startDate=a,endDate=b, frequencyType = 'minute'))
 '''
-fundamental analysis shit goes here
+fundamental analysis  goes here
 '''
 
 
