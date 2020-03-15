@@ -19,7 +19,7 @@ public class Controller extends GameDriverV4 {
 	arrow a = new arrow();
 	Font font = new Font("Helvetical Neue", Font.BOLD,24);
 	ArrayList<arrow> quiver;
-	ArrayList<hobo> minority;
+	ArrayList<hobo> man;
 	ArrayList<appleParticle> applePart;
 	ArrayList<man>dude;
 	ArrayList<bloodParticle>bloodAndCrip;
@@ -60,9 +60,9 @@ public class Controller extends GameDriverV4 {
 		quiver.add(b);
 		
 		
-		minority = new ArrayList<hobo>();
+		man = new ArrayList<hobo>();
 		hobo r = new hobo(distance);
-		minority.add(r);
+		man.add(r);
 	}
 	
 	
@@ -120,7 +120,7 @@ public class Controller extends GameDriverV4 {
 				numbah = 1;
 				canPlay = true;
 				quiver.clear();
-				minority.clear();
+				man.clear();
 				applePart.clear();
 				dude.clear();
 				bloodAndCrip.clear();
@@ -128,7 +128,7 @@ public class Controller extends GameDriverV4 {
 				state = 0;
 				
 				hobo re = new hobo(distance);
-				minority.add(re);
+				man.add(re);
 				arrow dogshit = new arrow();
 				quiver.add(dogshit);
 				
@@ -144,9 +144,9 @@ public class Controller extends GameDriverV4 {
 		quiver.add(b);
 		
 		
-		minority = new ArrayList<hobo>();
+		man = new ArrayList<hobo>();
 		hobo r = new hobo(distance);
-		minority.add(r);
+		man.add(r);
 				 */
 			}
 			
@@ -159,7 +159,7 @@ public class Controller extends GameDriverV4 {
 	arrow a = new arrow();
 	Font font = new Font("Helvetical Neue", Font.BOLD,24);
 	ArrayList<arrow> quiver;
-	ArrayList<hobo> minority;
+	ArrayList<hobo> man;
 	ArrayList<appleParticle> applePart;
 	ArrayList<man>dude;
 	ArrayList<bloodParticle>bloodAndCrip;
@@ -191,7 +191,7 @@ public class Controller extends GameDriverV4 {
 				quiver.get(i).drawArrow(win);
 			}
 			
-			minority.get(minority.size()-1).draw(win);
+			man.get(man.size()-1).draw(win);
 			if (canPlay) {
 				if (GameDriverV4.Keys[KeyEvent.VK_SPACE]) {
 					//a.flip();
@@ -203,7 +203,7 @@ public class Controller extends GameDriverV4 {
 			}
 
 			if (dude.size()==0) {
-				man rick = new man(minority.get(minority.size()-1).x, minority.get(minority.size()-1).y);
+				man rick = new man(man.get(man.size()-1).x, man.get(man.size()-1).y);
 				dude.add(rick);
 			}
 			dude.get(dude.size()-1).drawMan(win);
@@ -235,10 +235,10 @@ public class Controller extends GameDriverV4 {
 				quiver.add(new arrow());
 			}
 			//intersect the apple
-			if (quiver.get(quiver.size()-1).getTRY()>=minority.get(minority.size()-1).getTopY()) {
-				if (quiver.get(quiver.size()-1).getTRY()<=minority.get(minority.size()-1).getBottomY()) {
-					if (quiver.get(quiver.size()-1).getTRX()>=minority.get(minority.size()-1).getXLeft()) {
-						if (quiver.get(quiver.size()-1).getTRX()<=minority.get(minority.size()-1).getXRight()) {
+			if (quiver.get(quiver.size()-1).getTRY()>=man.get(man.size()-1).getTopY()) {
+				if (quiver.get(quiver.size()-1).getTRY()<=man.get(man.size()-1).getBottomY()) {
+					if (quiver.get(quiver.size()-1).getTRX()>=man.get(man.size()-1).getXLeft()) {
+						if (quiver.get(quiver.size()-1).getTRX()<=man.get(man.size()-1).getXRight()) {
 							quiver.add(new arrow());
 							for (int i = 0 ; i<20; i++) {
 								if (applePart.size()<20) {
@@ -247,11 +247,11 @@ public class Controller extends GameDriverV4 {
 							}
 							quiver.remove(quiver.size()-2);
 							//quiver.get(quiver.size()-1).flip2();
-							minority.clear();
+							man.clear();
 							distance++;
-							minority.add(new hobo(distance));
+							man.add(new hobo(distance));
 							dude.clear();
-							man rick = new man(minority.get(minority.size()-1).x, minority.get(minority.size()-1).y);
+							man rick = new man(man.get(man.size()-1).x, man.get(man.size()-1).y);
 							dude.add(rick);
 							numbah ++;
 						}
@@ -308,7 +308,7 @@ public class Controller extends GameDriverV4 {
 			//gotta reset the apple particles 
 			win.drawImage(hobo,null,dude.get(dude.size()-1).getTLx()-5,dude.get(dude.size()-1).getTLy());
 			//win.drawImage(appl, null, 100, 100);
-			win.drawImage(appl, null, minority.get(minority.size()-1).getXLeft()-10, minority.get(minority.size()-1).getTopY()-10);
+			win.drawImage(appl, null, man.get(man.size()-1).getXLeft()-10, man.get(man.size()-1).getTopY()-10);
 			if (applePart.size() > 0) {
 				for (int i= 0; i<applePart.size()-1; i++) {
 					applePart.get(i).moveAndDrawApple(win);
