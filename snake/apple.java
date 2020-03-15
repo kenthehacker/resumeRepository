@@ -1,0 +1,3 @@
+
+import java.awt.Color;import java.util.Random;import edu.princeton.cs.introcs.StdDraw;public class apple {private int lxSlot;private int tySlot;private int scale = 1;private int width = 1*scale;public apple() {Random rand = new Random();this.lxSlot = rand.nextInt(10)*scale;this.tySlot = rand.nextInt(9)*scale+1;}public void moveAndDraw() {StdDraw.setPenColor(Color.RED);StdDraw.filledRectangle((double)this.lxSlot+(double)width/2, (double)this.tySlot-(double)width/2, (double)width/2, (double)width/2);}public  int getX() {return this.lxSlot;}public int getY() {return this.tySlot;}public int getColX() {return this.lxSlot+1;}public int getColY() {return this.tySlot;}}
+
