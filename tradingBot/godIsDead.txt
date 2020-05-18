@@ -1,0 +1,32 @@
+Hey folks! If you're reading this, it's basically an improptu README because IDK GitHub at all
+So yeah the following is chronologically kinda how this code was made:
+
+
+Part 1: Authentication 
+This is the encoded URL for localhost
+http%3A%2F%2Flocalhost%2F
+TD Ameritrade URL Authenticator:
+https://auth.tdameritrade.com/auth?response_type=code&redirect_uri={URLENCODED REDIRECT URI}&client_id={URLENCODED Consumer Key}%40AMER.OAUTHAP
+ohh look what do we know? they won't let us auto authenticate anymore because of some bs security
+on top of their oAuth. I mean what can hackers do? ruin my life by buying 1000 puts on SPY expiring the next day?
+So I only automated half of the authentication the only work i have to do is answer a security question
+from reddit for the authorization_code:
+    grant_type: authorization_code  (literally type "authorization_code" into the box without quotes)
+    refresh_token: (leave blank - I know... none of the labeling makes sense, just trust me)
+    acccess_type: offline (same as above, literally type "offline" into the box without quotes)
+    code: decodedStuffFromStep18
+    client_id: CONSUMERKEY@AMER.OAUTHAP (yes, add "@AMER.OAUTHAP" without quotes)
+    redirect_uri: http://localhost
+It pastes the oAuth Tokens into Key.py and a TXT file. Key.py pulls out the token from thin air and TXT files keep tracks of all the 
+oAuth Tokens in case if something breaks regarding the authenticator and we can see what's going on
+
+
+
+Part 2: Getting Price Information
+Basically this is going to spit out all the data of a stonk. The Main.py is the brain where it will pass in 
+price.py's Stonk class which passes in a stonk ticker and theres different methods that will extract diff Informatio
+
+
+
+
+
